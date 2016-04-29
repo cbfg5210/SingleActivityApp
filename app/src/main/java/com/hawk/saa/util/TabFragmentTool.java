@@ -64,11 +64,6 @@ public class TabFragmentTool implements RadioGroup.OnCheckedChangeListener {
 		}
 	}
 
-	/**
-	 * 切换tab
-	 * 
-	 * @param idx
-	 */
 	private void showTab(int idx) {
 		FragmentTransaction ft = fragmentActivity.getChildFragmentManager()
 				.beginTransaction();
@@ -77,18 +72,11 @@ public class TabFragmentTool implements RadioGroup.OnCheckedChangeListener {
 		currentTab = idx; // 更新目标tab为当前tab
 	}
 
-	public int getCurrentTab() {
-		return currentTab;
-	}
-
 	public void setOnRgsExtraCheckedChangedListener(
 			OnRgsExtraCheckedChangedListener onRgsExtraCheckedChangedListener) {
 		this.onRgsExtraCheckedChangedListener = onRgsExtraCheckedChangedListener;
 	}
 
-	/**
-	 * 切换tab额外功能功能接口
-	 */
 	public static class OnRgsExtraCheckedChangedListener {
 		public void OnRgsExtraCheckedChanged(RadioGroup radioGroup,
 				int checkedId, int index) {
