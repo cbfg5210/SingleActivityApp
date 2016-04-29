@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9" >
+    </FrameLayout>
+
+    <RadioGroup
+        android:id="@+id/rg_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal" 
+        android:background="#ffffff">
+
+        <RadioButton
+            android:id="@+id/radio_tangshi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:drawableTop="@drawable/selector_bg_tabs"
+            android:gravity="center"
+            android:paddingLeft="0dp"
+            android:text="唐诗" 
+            android:textColor="@color/selector_txtcolor_tabs"/>
+
+        <RadioButton
+            android:id="@+id/radio_songci"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/selector_bg_tabs"
+            android:gravity="center"
+            android:paddingLeft="0dp"
+            android:text="宋词" 
+            android:textColor="@color/selector_txtcolor_tabs"/>
+
+        <RadioButton
+            android:id="@+id/radio_yuanqu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/selector_bg_tabs"
+            android:gravity="center"
+            android:paddingLeft="0dp"
+            android:text="元曲" 
+            android:textColor="@color/selector_txtcolor_tabs"/>
+    </RadioGroup>
+
+</LinearLayout>
