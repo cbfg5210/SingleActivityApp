@@ -1,0 +1,2 @@
+# SingleActivityApp
+使用单个activity+多个fragment的架构模式
