@@ -25,11 +25,10 @@ public class AppFragmentTool {
     }
 
     /**
-     * 默认添加一个主fragment
+     * 最先添加一个fragment
      */
-    public void initMainFragment(){
-        //这里不使用switchFragment方法，如果使用了，那么一调用popBackStackInclusive方法，啥子都没了
-        mFragmentManager.beginTransaction().add(R.id.main_container,new MainFragment(),MainFragment.class.getSimpleName()).commit();
+    public void initMainFragment(String fragmentTag){
+        switchFragment(fragmentTag);
     }
 
     public void switchFragment(String fragmentTag, Bundle bundle) {
@@ -94,14 +93,5 @@ public class AppFragmentTool {
      */
     public void popBackStack() {
         mFragmentManager.popBackStack();
-    }
-
-    /**
-     * *Fragment中使用POP_BACK_STACK_INCLUSIVE
-     * 达到一次跳转到栈底。类似Activity的
-     * 采用FLAG_ACTIVITY_CLEAR_TOP
-     */
-    public void popBackStackInclusive() {
-        mFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
     }
 }

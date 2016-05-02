@@ -61,7 +61,7 @@ public class PoetFragment extends BaseFragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemId=item.getItemId();
         if(itemId==R.id.action_right){
-            mAppFragmentTool.popBackStackInclusive();
+            startFragment(MainFragment.class.getSimpleName(),null);
         }else if(itemId==android.R.id.home){
             onBackPressed();
         }

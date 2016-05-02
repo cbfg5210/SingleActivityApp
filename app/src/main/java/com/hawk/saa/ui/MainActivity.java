@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity{
         new SplashDialog(this).show();
         mAppFragmentTool = new AppFragmentTool(this);
 
-        mAppFragmentTool.initMainFragment();
+        mAppFragmentTool.initMainFragment(MainFragment.class.getSimpleName());
     }
 
     public AppFragmentTool getAppFragmentTool() {
