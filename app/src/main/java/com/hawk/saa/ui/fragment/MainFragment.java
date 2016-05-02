@@ -29,6 +29,7 @@ public class MainFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        super.onCreateView(null,null,null);
         setHomeBackEnable(false);
         if (null == layout) {
             layout = inflater.inflate(R.layout.fragment_main, null);

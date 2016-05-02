@@ -8,6 +8,7 @@ import android.view.Menu;
 
 import com.hawk.saa.R;
 import com.hawk.saa.ui.fragment.BaseFragment;
+import com.hawk.saa.ui.fragment.MainFragment;
 import com.hawk.saa.util.AppFragmentTool;
 import com.hawk.saa.widget.SplashDialog;
 

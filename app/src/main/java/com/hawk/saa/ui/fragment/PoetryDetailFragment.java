@@ -35,7 +35,7 @@ public class PoetryDetailFragment extends BaseFragment{
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+		super.onCreateView(null,null,null);
 		View layout=inflater.inflate(R.layout.fragment_poetrydetail,null);
 		
 		TextView text_title=(TextView) layout.findViewById(R.id.text_title);

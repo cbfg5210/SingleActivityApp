@@ -34,9 +34,7 @@ public class CommonFragment extends BaseFragment implements OnItemClickListener 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        //由于fragment生命周期,这句不能放在onCreate函数:
         mAppFragmentTool.setCurrentFragmentTag(MainFragment.class.getSimpleName());
-//        Log.i(TAG,"CommonFragment,currentTag="+mAppFragmentTool.getCurrentFragmentTag());
 
         View layout = inflater.inflate(R.layout.fragment_common, null);
         if (tabflag.equals("TangShi")) {

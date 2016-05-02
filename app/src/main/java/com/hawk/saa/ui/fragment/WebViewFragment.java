@@ -27,6 +27,7 @@ public class WebViewFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        super.onCreateView(null,null,null);
         setTitle("沉璧浮光");
         setHomeBackEnable(true);
 
@@ -76,7 +77,7 @@ public class WebViewFragment extends BaseFragment {
         if(itemId==R.id.action_right){
             loadWebUrl(webUrl);
         }else if(itemId==android.R.id.home){
-            mAppFragmentTool.popBackStackInclusive();
+            onBackPressed();
         }
         return true;
     }
