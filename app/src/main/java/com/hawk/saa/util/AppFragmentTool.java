@@ -28,7 +28,7 @@ public class AppFragmentTool {
      * 最先添加一个fragment
      */
     public void initMainFragment(String fragmentTag){
-        switchFragment(fragmentTag);
+        switchFragment(fragmentTag,null);
     }
 
     public void switchFragment(String fragmentTag, Bundle bundle) {
