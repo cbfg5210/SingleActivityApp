@@ -11,7 +11,7 @@ import android.widget.ListView;
 import com.hawk.saa.R;
 import com.hawk.saa.adapter.PoetryAdapter;
 import com.hawk.saa.util.AppConstant;
-import com.hawk.saa.util.ToastTool;
+import com.hawk.saa.util.ToastUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,26 +34,25 @@ public class CommonFragment extends BaseFragment implements OnItemClickListener 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mAppFragmentTool.setCurrentFragmentTag(MainFragment.class.getSimpleName());
+//        mAppFragmentTool.setCurrentFragmentTag(MainFragment.class.getSimpleName());//这里不用
+        View layoutView = inflater.inflate(R.layout.fragment_common, null);
+//        if (tabflag.equals("TangShi")) {
+//            tabTitle = "唐诗";
+//        } else if (tabflag.equals("SongCi")) {
+//            tabTitle = "宋词";
+//        } else if (tabflag.equals("YuanQu")) {
+//            tabTitle = "元曲";
+//        }
+//        setTitle(tabTitle);
 
-        View layout = inflater.inflate(R.layout.fragment_common, null);
-        if (tabflag.equals("TangShi")) {
-            tabTitle = "唐诗";
-        } else if (tabflag.equals("SongCi")) {
-            tabTitle = "宋词";
-        } else if (tabflag.equals("YuanQu")) {
-            tabTitle = "元曲";
-        }
-        setTitle(tabTitle);
-
-        list_poetry = (ListView) layout.findViewById(R.id.list_poetry);
+        list_poetry = getView(layoutView,R.id.list_poetry);
         mPoetryAdapter = new PoetryAdapter(getActivity(), null);
         list_poetry.setAdapter(mPoetryAdapter);
         list_poetry.setOnItemClickListener(this);
 
         fetchData();
 
-        return layout;
+        return layoutView;
     }
 
     private void fetchData() {
@@ -71,7 +70,7 @@ public class CommonFragment extends BaseFragment implements OnItemClickListener 
             mPoetryAdapter.setList(poemList);
         } catch (JSONException e) {
             // TODO Auto-generated catch block
-            ToastTool.show("添加数据出错");
+            ToastUtil.show("添加数据出错");
         }
     }
 

@@ -3,12 +3,12 @@ package com.hawk.saa.util;
 import android.view.Gravity;
 import android.widget.Toast;
 
-import com.hawk.saa.application.AppApplication;
+import com.hawk.saa.App;
 
 /**
  * 弹出消息工具类
  */
-public class ToastTool {
+public class ToastUtil {
 	private static Toast mToast;
 
 	/**
@@ -17,7 +17,17 @@ public class ToastTool {
 	 */
 	public static void show(String msg) {
 		if (null == mToast) {
-			mToast = Toast.makeText(AppApplication.getInstance(), msg, Toast.LENGTH_SHORT);
+			mToast = Toast.makeText(App.getInstance(), msg, Toast.LENGTH_SHORT);
+		} else {
+			mToast.setText(msg);
+			mToast.setDuration(Toast.LENGTH_SHORT);
+		}
+		mToast.show();
+	}
+
+	public static void showLong(String msg) {
+		if (null == mToast) {
+			mToast = Toast.makeText(App.getInstance(), msg, Toast.LENGTH_LONG);
 		} else {
 			mToast.setText(msg);
 			mToast.setDuration(Toast.LENGTH_SHORT);
@@ -41,7 +51,7 @@ public class ToastTool {
 	public static void showInCenter(String msg) {
 
 		if (null == mToast) {
-			mToast = Toast.makeText(AppApplication.getInstance(), msg, Toast.LENGTH_SHORT);
+			mToast = Toast.makeText(App.getInstance(), msg, Toast.LENGTH_SHORT);
 		} else {
 			mToast.setText(msg);
 			mToast.setDuration(Toast.LENGTH_SHORT);

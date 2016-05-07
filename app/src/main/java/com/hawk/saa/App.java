@@ -1,9 +1,9 @@
-package com.hawk.saa.application;
+package com.hawk.saa;
 
 import android.app.Application;
 
-public class AppApplication extends Application {
-	private static AppApplication mInstance;
+public class App extends Application {
+	private static App mInstance;
 	@Override
 	public void onCreate() {
 		// TODO Auto-generated method stub
@@ -11,7 +11,7 @@ public class AppApplication extends Application {
 		mInstance=this;
 	}
 	
-	public static AppApplication getInstance(){
+	public static App getInstance(){
 		return mInstance;
 	}
 }

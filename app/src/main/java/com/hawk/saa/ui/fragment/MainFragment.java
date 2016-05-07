@@ -2,7 +2,6 @@ package com.hawk.saa.ui.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,9 +10,9 @@ import android.view.ViewGroup;
 import android.widget.RadioGroup;
 
 import com.hawk.saa.R;
-import com.hawk.saa.ui.MainActivity;
+import com.hawk.saa.util.ClickTimeUtil;
 import com.hawk.saa.util.TabFragmentTool;
-import com.hawk.saa.util.ToastTool;
+import com.hawk.saa.util.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,13 +23,13 @@ public class MainFragment extends BaseFragment {
     private List<Fragment> fragmentList;
     private String[] tabsName = {"唐诗", "宋词", "元曲"};
     private int tabFlag;
-    private long firstTime;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(null,null,null);
         setHomeBackEnable(false);
+        setTitle(tabsName[tabFlag]);
         if (null == layout) {
             layout = inflater.inflate(R.layout.fragment_main, null);
             rg_tabs = (RadioGroup) layout.findViewById(R.id.rg_tabs);
@@ -40,7 +39,6 @@ public class MainFragment extends BaseFragment {
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
         super.onActivityCreated(savedInstanceState);
         // 这里加一个判断，因为fragment切换时候会重新onCreateView、onActivityCreated...，
         // 但是数据还存在，不需要初始化数据
@@ -92,15 +90,10 @@ public class MainFragment extends BaseFragment {
 
     @Override
     public void onBackPressed() {
-        long secondTime = System.currentTimeMillis();
-        Log.i(TAG, "firstTime=" + firstTime + ";secondTime=" + secondTime);
-
-        if ((secondTime - firstTime) > 1000) {
-            ToastTool.show("再按一次退出");
-            firstTime = secondTime;
+        if (ClickTimeUtil.isRetryTooFast(1000)) {
+            getMainActivity().finish();
         } else {
-            MainActivity mMainActivity= (MainActivity) getContext();
-            mMainActivity.finish();
+            ToastUtil.show("再按一次退出");
         }
     }
 

@@ -38,6 +38,10 @@ public abstract class BaseFragment extends Fragment {
         return null;
     }
 
+    public MainActivity getMainActivity(){
+        return mMainActivity;
+    }
+
     public void startFragment(String fragmentTag, Bundle bundle) {
         mAppFragmentTool.switchFragment(fragmentTag, bundle);
     }
@@ -52,5 +56,9 @@ public abstract class BaseFragment extends Fragment {
 
     public void setHomeBackEnable(boolean option) {
         mMainActivity.getSupportActionBar().setDisplayHomeAsUpEnabled(option);
+    }
+
+    public <T extends View>T getView(View layoutView,int viewId){
+        return (T) layoutView.findViewById(viewId);
     }
 }
