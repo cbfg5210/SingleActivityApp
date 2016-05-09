@@ -23,27 +23,20 @@ public class CommonFragment extends BaseFragment implements OnItemClickListener 
     private ListView list_poetry;
     private PoetryAdapter mPoetryAdapter;
     private String tabflag;
-    private String tabTitle;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        tabflag = getArguments().getString("tabflag");
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 //        mAppFragmentTool.setCurrentFragmentTag(MainFragment.class.getSimpleName());//这里不用
-        View layoutView = inflater.inflate(R.layout.fragment_common, null);
+        tabflag = getArguments().getString("tabflag");
 //        if (tabflag.equals("TangShi")) {
-//            tabTitle = "唐诗";
+//            setTitle("唐诗");
 //        } else if (tabflag.equals("SongCi")) {
-//            tabTitle = "宋词";
+//            setTitle("宋词");
 //        } else if (tabflag.equals("YuanQu")) {
-//            tabTitle = "元曲";
+//            setTitle("元曲");
 //        }
-//        setTitle(tabTitle);
+        View layoutView = inflater.inflate(R.layout.fragment_common, null);
 
         list_poetry = getView(layoutView,R.id.list_poetry);
         mPoetryAdapter = new PoetryAdapter(getActivity(), null);
